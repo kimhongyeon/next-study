@@ -12,4 +12,4 @@ npm run dev
 
 ## 기본적인 라이브러리들 설치(styled-components, redux, axios 등등)
 
-## eslint, pretter 설정
+## eslint, prettier 설정
