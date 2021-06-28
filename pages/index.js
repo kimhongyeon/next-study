@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import BaseButton from "../component/BaseButton";
+import Button from "../component/Button";
 
 export default function Home() {
   return (
@@ -49,7 +50,10 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-          <BaseButton>ddddd</BaseButton>
+          <BaseButton></BaseButton>
+          <Button color="green" size="large" >green</Button>
+          <Button color="pink" >pink</Button>
+          <Button color="Red"  size="small" >Red</Button>
         </div>
       </main>
 
