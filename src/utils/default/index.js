@@ -1,0 +1,49 @@
+const DEFAULT_DEVICE_SIZE_WIDTH = {
+  LARGE: "1280px",
+  SMALL: "768px",
+};
+
+const DEFAULT_DEVICE = {
+  DESKTOP: `screen and (min-width: ${DEFAULT_DEVICE_SIZE_WIDTH.LARGE})`,
+  MOBILE: `screen and (max-width: ${DEFAULT_DEVICE_SIZE_WIDTH.LARGE})`,
+};
+
+const DEFAULT_SPACE_SIZE = {
+  XX_LARGE: "60px",
+  X_LARGE: "40px",
+  LARGE: "24px",
+  MIDDLE: "16px",
+  SMALL: "8px",
+  TINY: "2px",
+};
+
+const DEFAULT_COLOR = {
+  PRIMARY: "#335EE9",
+  PRIMARY_BACKGROUND: "#5377EC",
+  PRIMARY_LIGHT: "#768bff",
+  PRIMARY_DARK: "#0035b6",
+  PRIMARY_CONTRAST: "#ffffff",
+  SECONDARY: "#00FFAA",
+  SECONDARY_LIGHT: "#6cffdc",
+  SECONDARY_DARK: "#00ca7a",
+  SECONDARY_CONTRAST: "#222222",
+  BACKGROUND: "#E5E5E5",
+  BLACK: "#222222",
+  WHITE: "#ffffff",
+  ERROR: "#fe6b5a",
+  DISABLE: "#8C8C8C",
+};
+
+const DEFAULT_TRANSITION_TIME = {
+  LONG: "0.5s",
+  SHORT: "0.2s",
+  TINY: "0.1s",
+};
+
+export {
+  DEFAULT_DEVICE_SIZE_WIDTH,
+  DEFAULT_DEVICE,
+  DEFAULT_SPACE_SIZE,
+  DEFAULT_COLOR,
+  DEFAULT_TRANSITION_TIME,
+};
