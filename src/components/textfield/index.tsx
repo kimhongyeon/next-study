@@ -1,7 +1,25 @@
+import React, { FC } from "react";
 import { useFocusValue } from "../../utils/hooks/useFocusValue";
 import { Box, Field, Label, ErrorLabel } from "./style";
 
-const TextField = ({
+interface iProps {
+  id?: string;
+  width?: string;
+  widthMobile?: string;
+  height?: string;
+  heightMobile?: string;
+  label: string;
+  value: string;
+  placeholder?: string;
+  isError?: boolean;
+  errorMessage?: string;
+  disabled?: boolean;
+  maxLength?: number;
+  keywords?: string[];
+  onChange: () => void;
+}
+
+const TextField: FC<iProps> = ({
   id,
   width,
   widthMobile,
@@ -17,13 +35,12 @@ const TextField = ({
 }) => {
   const [isFocused, onFocus, onBlur] = useFocusValue(false);
 
-  const onClick = (event) => {
+  const onClick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
 
   return (
     <Box
-      id={id ? `TextField_Box_${id}` : null}
       width={width}
       widthMobile={widthMobile}
       height={height}
@@ -34,7 +51,6 @@ const TextField = ({
       onClick={onClick}
     >
       <Label
-        id={id ? `TextField_Label_${id}` : null}
         isFocused={disabled ? false : isFocused}
         isError={isError}
         disabled={disabled}
@@ -42,7 +58,6 @@ const TextField = ({
         {label}
       </Label>
       <Field
-        id={id ? `TextField_Field_${id}` : null}
         type="text"
         isFocused={disabled ? false : isFocused}
         value={value}
@@ -53,9 +68,7 @@ const TextField = ({
         onBlur={onBlur}
         readOnly={disabled}
       />
-      <ErrorLabel id={id ? `TextField_ErrorLabel_${id}` : null}>
-        {errorMessage}
-      </ErrorLabel>
+      <ErrorLabel>{errorMessage}</ErrorLabel>
     </Box>
   );
 };

@@ -1,6 +1,11 @@
+import { NextPage } from "next";
 import styled from "styled-components";
 import { TextField } from "../../components/textfield";
-import { useInputValue } from "../../utils/hooks/useInputValue";
+import {
+  eInputValidationType,
+  eInputValueType,
+  useInputValue,
+} from "../../utils/hooks/useInputValue";
 
 const Box = styled.div`
   margin: 24px;
@@ -9,7 +14,7 @@ const Box = styled.div`
 const ItemBox = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 16px;
+  margin-top: 24px;
 
   &:first-child {
     margin-top: 0;
@@ -20,14 +25,14 @@ const ItemText = styled.p`
   margin-left: 16px;
 `;
 
-const Components = () => {
+const Components: NextPage = () => {
   const [
     numberValue,
     onChangeNumberValue,
     isErrorNumberValue,
     errorMessageNumberValue,
   ] = useInputValue("", {
-    inputType: "ONLY_NUMBER",
+    inputType: eInputValueType.ONLY_NUMBER,
   });
 
   const [
@@ -36,28 +41,28 @@ const Components = () => {
     isErrorStringValue,
     errorMessageStringValue,
   ] = useInputValue("", {
-    inputType: "ONLY_STRING",
+    inputType: eInputValueType.ONLY_STRING,
   });
 
   const [name, onChangeName, isErrorName, errorMessageName] = useInputValue(
     "",
     {
-      validationType: "NAME",
+      validationType: eInputValidationType.NAME,
     }
   );
 
   const [phone, onChangePhone, isErrorPhone, errorMessagePhone] = useInputValue(
     "",
     {
-      inputType: "PHONE",
-      validationType: "PHONE",
+      inputType: eInputValueType.PHONE,
+      validationType: eInputValidationType.NAME,
     }
   );
 
   const [email, onChangeEmail, isErrorEmail, errorMessageEmail] = useInputValue(
     "",
     {
-      validationType: "EMAIL",
+      validationType: eInputValidationType.EMAIL,
     }
   );
 
