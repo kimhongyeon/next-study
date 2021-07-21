@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useFocusValue } from '../../utils/hooks/useFocusValue';
+import { useFocusValue } from 'utils/hooks/useFocusValue';
 import { BoxProps, FieldProps } from './interface';
 import { Box, Field, ErrorLabel } from './style';
 

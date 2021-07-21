@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import styled from 'styled-components';
-import { TextField } from '../../components/textfield';
-import { eInputValidationType, eInputValueType, useInputValue } from '../../utils/hooks/useInputValue';
+import { TextField } from 'components/textfield';
+import { eInputValidationType, eInputValueType, useInputValue } from 'utils/hooks/useInputValue';
 
 const Box = styled.div`
     margin: 24px;
