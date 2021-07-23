@@ -1,20 +1,37 @@
 import { NextPage } from 'next';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { TextField } from 'components/textfield';
 import { eInputValidationType, eInputValueType, useInputValue } from 'utils/hooks/useInputValue';
+
+interface iItemBoxProps {
+    backgroundColor?: string;
+}
 
 const Box = styled.div`
     margin: 24px;
 `;
 
-const ItemBox = styled.div`
+const ItemBox = styled.div<iItemBoxProps>`
     display: flex;
     align-items: center;
     margin-top: 24px;
 
+    ${({ backgroundColor }) => {
+        if (backgroundColor) {
+            return css`
+                background-color: ${backgroundColor};
+            `;
+        }
+    }}
+
     &:first-child {
         margin-top: 0;
     }
+`;
+
+const BorderItemBox = styled(ItemBox)`
+    box-sizing: border-box;
+    border: 1px solid red;
 `;
 
 const ItemText = styled.p`
@@ -48,7 +65,7 @@ const Components: NextPage = () => {
             <h1>컴포넌트 모음</h1>
             <div>
                 <h2>텍스트필드</h2>
-                <ItemBox>
+                <ItemBox backgroundColor="red">
                     <TextField
                         value={numberValue}
                         onChange={onChangeNumberValue}
@@ -58,7 +75,7 @@ const Components: NextPage = () => {
                     />
                     <ItemText>숫자 : {numberValue}</ItemText>
                 </ItemBox>
-                <ItemBox>
+                <BorderItemBox>
                     <TextField
                         value={stringValue}
                         onChange={onChangeStringValue}
@@ -67,7 +84,7 @@ const Components: NextPage = () => {
                         placeholder="문자만 입력해주세요."
                     />
                     <ItemText>문자 : {stringValue}</ItemText>
-                </ItemBox>
+                </BorderItemBox>
                 <ItemBox>
                     <TextField
                         value={name}
